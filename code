@@ -3,14 +3,14 @@
 #include <locale.h>
 #include <algorithm>
 #include <vector>
-#include<fstream>
+#include<fstrea m>
 #include <chrono>
 using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Russian");
     cout << "hello comrade enter the size of the generated array ->";
-    int size, n;
+    int size, n ,C = 0 ,M = 0 ;
     cin >> size;
     int* arr = new int[size];
     cout << "elements of the generated array before sorting \n";
@@ -20,9 +20,12 @@ int main()
         cout << y << "-" << arr[y] << "\n";
     }
     auto start =  chrono::high_resolution_clock::now();
-    for (size_t i = 1; i < size; i++) 
-        for (size_t j = i; j > 0 and arr[j - 1] > arr[j]; j--) 
-            swap(arr[j - 1], arr[j]);
+    for (size_t i = 1; i < size; i++) {
+        for (size_t j = i; j > 0 and arr[j - 1] > arr[j]; j--) {
+            M += 1;
+            swap(arr[j - 1], arr[j]);}
+        C += 1;
+    }
         
     auto end = chrono::high_resolution_clock::now();
     cout << "elements of the generated array after sorting \n";
@@ -32,4 +35,5 @@ int main()
     }
     chrono::duration<float> duration = end - start;
     cout << "Duration - " << duration.count() << "s" << "\n";
+    cout << "C = " << C << "\n" << "M = " << M << "\n" << "C + M =" << C + M << "\n";
 }
