@@ -3,7 +3,7 @@
 #include <locale.h>
 #include <algorithm>
 #include <vector>
-#include<fstrea m>
+#include<fstream>
 #include <chrono>
 using namespace std;
 int main()
