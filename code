@@ -10,14 +10,15 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     cout << "hello comrade enter the size of the generated array ->";
-    int size, n ,C = 0 ,M = 0 ;
+    int size, n;
+    unsigned long long C = 0, M = 0;
     cin >> size;
     int* arr = new int[size];
-    cout << "elements of the generated array before sorting \n";
+    /*cout << "elements of the generated array before sorting \n";*/
     for (size_t y = 0; y < size; y++)
     {
         arr[y] = rand();
-        cout << y << "-" << arr[y] << "\n";
+       /* cout << y << "-" << arr[y] << "\n";*/
     }
     auto start =  chrono::high_resolution_clock::now();
     for (size_t i = 1; i < size; i++) {
@@ -28,11 +29,11 @@ int main()
     }
         
     auto end = chrono::high_resolution_clock::now();
-    cout << "elements of the generated array after sorting \n";
-    for (size_t y = 0; y < size; y++)
+    /*cout << "elements of the generated array after sorting \n";*/
+    /*for (size_t y = 0; y < size; y++)
     {
         cout << y << "-" << arr[y] << "\n";
-    }
+    }*/
     chrono::duration<float> duration = end - start;
     cout << "Duration - " << duration.count() << "s" << "\n";
     cout << "C = " << C << "\n" << "M = " << M << "\n" << "C + M =" << C + M << "\n";
